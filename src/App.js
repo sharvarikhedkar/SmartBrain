@@ -27,9 +27,8 @@ const paticlesOptions = {
   }
 }
 
-
 class App extends Component {
-
+  // creating a state for the application with default values as given following
   constructor(){
     super();
     this.state = {
@@ -57,7 +56,7 @@ class App extends Component {
       rightCol: width - (clarifaiFace.right_col * width), //is the total percentage - the width from the left hand side 
       bottomRow: height - (clarifaiFace.bottom_row * height) 
 
-      //return a box here ,which will fill the job, here we will first need to figure out the fist second third and fourth dot sourrounding the box and then just wrap it in an order 
+      //return a box here ,which will fill the job, here we will first need to figure out the fist second third and fourth dot surrounding the box and then just wrap it in an order 
     }
 
   }
@@ -66,12 +65,11 @@ class App extends Component {
     console.log(box);
     this.setState({box:box});
   } 
+  //depending on the region we get arrays, so if we have multiple people then we'll get multiple arrays 
 
-
-  //depending on the reion we get arrays, so if we have multiple people then we'll get multiple arrays 
 
   onInputChange = (event) =>{
-    this.setState({input: event.target.value})
+    this.setState({input: event.target.value}) // state is changed using -> this.setState 
   }
 
   onButtonSubmit = () =>{
@@ -86,7 +84,10 @@ class App extends Component {
         // do something with response
         //console.log(response.outputs[0].data.regions[0].region_info.bounding_box);
   }
-
+  
+  // this function does the following things
+  // 1. if route is signout then makes isSignIn to false and if route is home then makes isSignIn true
+  // 2. Sets the state of the route to given value i.e. either home or signin or register
   onRouteChange = (route) =>{
     if (route === 'signout') {
       this.setState({isSignedIn: false})
